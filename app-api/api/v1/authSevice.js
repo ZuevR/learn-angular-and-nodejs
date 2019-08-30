@@ -1,10 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const helper = require('../../helpers/token');
-const userController = require('../../controllers').user;
+const { FormHelper, TokenHelper } = require('../../helpers');
+const UserController = require('../../controllers').user;
 
-// router.post('/sign-in', userController.signIn);
+router.post('/sign-up',
+  FormHelper.verifyPassword,
+  FormHelper.processForm,
+  FormHelper.generateHash,
+  UserController.signUp
+);
 
-router.post('/sign-up', userController.add);
+router.post('/sign-in',
+  FormHelper.processForm,
+  UserController.signIn
+);
+
+router.get('/check-user',
+  TokenHelper.verifyToken,
+  UserController.getIdentity
+);
 
 module.exports = router;
