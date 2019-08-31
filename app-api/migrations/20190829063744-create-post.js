@@ -10,9 +10,11 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
+        allowNull: false
       },
       content: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       author_id: {
         type: Sequelize.INTEGER

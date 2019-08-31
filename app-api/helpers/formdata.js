@@ -27,7 +27,7 @@ const processForm = (req, res, next) => {
 
 const generateHash = (req, res, next) => {
   const password = req.body.password.trim();
-  req.body.password = crypt.hashSync(password, 3);
+  req.body.password = crypt.hashSync(password, process.env.SALT_LEVEL || 3);
   next();
 };
 
