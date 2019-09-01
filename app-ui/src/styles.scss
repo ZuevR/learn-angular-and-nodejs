@@ -1,1 +1,137 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~reset-css/reset.css";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('assets/fonts/montserrat-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('assets/fonts/montserrat-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/roboto-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('assets/fonts/roboto-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+:root {
+  --primary-color: #3db7c6;
+  --dark-color: #333333;
+  --grey-color: #747474;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu', 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid var(--primary-color);
+
+  &-inner {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      background-color: var(--primary-color);
+      padding: 0 15px;
+      border-radius: 10px;
+      transition: all .2s linear;
+
+      &:hover {
+        box-shadow: 0 0 10px #aaaaaa;
+      }
+
+      a {
+        font-size: 30px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+
+    .auth-menu {
+
+      ul {
+        display: flex;
+
+        .auth-menu-item {
+          margin: 0 10px;
+          padding: 5px;
+
+          a {
+            font-weight: 700;
+            color: var(--grey-color);
+            transition: color .2s linear;
+
+            &:hover {
+              color: var(--dark-color);
+            }
+          }
+
+          &.active {
+
+            a {
+              color: var(--dark-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid var(--primary-color);
+
+  &-inner {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
