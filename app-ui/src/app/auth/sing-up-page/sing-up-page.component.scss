@@ -16,6 +16,13 @@
       font-family: cursive;
       font-size: 14px;
       color: var(--danger-color);
+
+      &.common {
+        padding: 10px 0;
+        background-color: var(--danger-color);
+        color: #ffffff;
+        text-align: center;
+      }
     }
 
     button[type="submit"] {
@@ -49,6 +56,14 @@
       border: 1px solid #a9a9a9;
       border-radius: 5px;
       outline: none;
+
+      &.ng-touched.ng-invalid {
+       border-color: var(--danger-color);
+      }
+
+      &.ng-touched.ng-valid {
+        border-color: var(--success-color);
+      }
     }
 
     input:-webkit-autofill {

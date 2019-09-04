@@ -1,13 +1,20 @@
 const jwt = require('jsonwebtoken');
 
 const generateToken = payload => {
-  return jwt.sign({
+  const exp = Math.floor(Date.now() / 1000) + 3600;
+
+  const sign = jwt.sign({
+      exp,
       id: payload.id,
       name: payload.name
     },
-    'inspirit',
-    { expiresIn: '24h' }
+    'inspirit'
   );
+
+  return {
+    exp,
+    id: sign
+  }
 };
 
 const verifyToken = (req, res, next) => {

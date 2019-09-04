@@ -3,13 +3,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const authRouter = require('./api/v1/authSevice');
+const authRouter = require('./api/v1/auth');
 const userRouter = require('./api/v1/users');
 const postRouter = require('./api/v1/posts');
 
 const app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

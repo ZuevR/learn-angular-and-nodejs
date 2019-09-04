@@ -26,7 +26,8 @@ import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
       }
     ])
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class AuthModule {
 

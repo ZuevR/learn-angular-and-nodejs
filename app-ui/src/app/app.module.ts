@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,12 @@ import { HomePageComponent } from './home-page/home-page.component';
     HomePageComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

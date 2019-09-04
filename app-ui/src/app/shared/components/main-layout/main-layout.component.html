@@ -10,7 +10,7 @@
         <ul>
           <li class="auth-menu-item"><a [routerLink]="['/auth', 'registration']">Registration</a></li>
           <li class="auth-menu-item"><a [routerLink]="['/auth', 'login']">Login</a></li>
-          <li class="auth-menu-item"><a href="">Logout</a></li>
+          <li class="auth-menu-item"><a href="#" (click)="logout($event)">Logout</a></li>
         </ul>
       </nav>
 
@@ -26,7 +26,7 @@
         <div class="sidebar">
 
           <div class="user-info">
-            <span>Username</span>
+            <span>{{ userName }}</span>
           </div>
 
           <nav class="nav-menu">
