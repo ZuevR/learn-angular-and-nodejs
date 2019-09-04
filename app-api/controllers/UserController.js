@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const { TokenHelper, FormHelper } = require('../helpers');
+const { TokenHelper, FormHelper, ResponseHelper } = require('../helpers');
 
 module.exports = {
   signUp(req, res) {
@@ -17,14 +17,14 @@ module.exports = {
       .findOne({ where: { email: req.body.email } })
       .then(user => {
         if (!user) {
-          return res.status(404).send({ message: 'User with this email address does not exist' });
+          return res.status(404).send(ResponseHelper.error('User with this email address does not exist'));
         }
         const match = FormHelper.comparePassword(req.body.password, user.password);
         if (match) {
           const token = TokenHelper.generateToken(user.dataValues);
           return res.status(200).send({ userName: user.name, token });
         }
-        return res.status(401).send({ message: 'Wrong password' })
+        return res.status(401).send(ResponseHelper.error('Wrong password'))
       })
       .catch(error => res.status(400).send(error));
   },

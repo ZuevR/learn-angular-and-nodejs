@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from '../../../auth/shared/services/auth.service';
 
 @Component({
@@ -26,6 +27,6 @@ export class MainLayoutComponent implements OnInit {
   logout(event: Event) {
     event.preventDefault();
     this.authService.logout();
-    console.log('logout');
+    this.userName = 'Guest';
   }
 }

@@ -8,9 +8,11 @@
 
       <nav class="auth-menu">
         <ul>
-          <li class="auth-menu-item"><a [routerLink]="['/auth', 'registration']">Registration</a></li>
-          <li class="auth-menu-item"><a [routerLink]="['/auth', 'login']">Login</a></li>
-          <li class="auth-menu-item"><a href="#" (click)="logout($event)">Logout</a></li>
+          <ng-container *ngIf="!authService.isAuth()">
+            <li class="auth-menu-item"><a [routerLink]="['/auth', 'registration']">Registration</a></li>
+            <li class="auth-menu-item"><a [routerLink]="['/auth', 'login']">Login</a></li>
+          </ng-container>
+          <li *ngIf="authService.isAuth()" class="auth-menu-item"><a href="#" (click)="logout($event)">Logout</a></li>
         </ul>
       </nav>
 

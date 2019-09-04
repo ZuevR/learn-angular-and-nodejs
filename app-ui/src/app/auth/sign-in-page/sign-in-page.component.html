@@ -1,1 +1,48 @@
-<p>sign-in-page works!</p>
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-group">
+    <label>Email:
+      <div class="form-control">
+        <input type="email" formControlName="email">
+      </div>
+    </label>
+
+    <div
+      class="error"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <small *ngIf="form.get('email').hasError('required')">
+        The email field is a required field
+      </small>
+      <small *ngIf="form.get('email').hasError('email')">
+        Incorrect email address
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Password:
+      <div class="form-control">
+        <input type="password" formControlName="password">
+      </div>
+    </label>
+
+    <div
+      class="error"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+      <small *ngIf="form.get('password').hasError('required')">
+        The password field is a required field
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid || this.submitting">Send</button>
+  </div>
+
+  <div class="form-group" *ngIf="authService.error$ | async as message">
+    <div class="error common">{{ message }}</div>
+  </div>
+
+</form>

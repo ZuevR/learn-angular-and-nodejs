@@ -36,7 +36,11 @@ export class AuthService {
   }
 
   signIn(user: User) {
-    this.http.post('', user);
+    return this.http.post(`${ environment.host }/api/v1/auth/sign-in`, user)
+      .pipe(
+        tap(this.setToken),
+        catchError(this.handleError.bind(this))
+      );
   }
 
   logout() {
