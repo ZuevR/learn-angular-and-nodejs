@@ -14,6 +14,7 @@ import { MyPostsPageComponent } from './pages/my-posts-page/my-posts-page.compon
 import { FriendsPostsPageComponent } from './pages/friends-posts-page/friends-posts-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { FollowerComponent } from './components/follower/follower.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FollowerComponent } from './components/follower/follower.component';
     MyPostsPageComponent,
     FriendsPostsPageComponent,
     UsersPageComponent,
-    FollowerComponent
+    FollowerComponent,
+    SearchPipe
   ],
   imports: [
     SharedModule,

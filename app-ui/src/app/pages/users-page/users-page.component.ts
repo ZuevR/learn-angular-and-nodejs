@@ -12,6 +12,7 @@ export class UsersPageComponent implements OnInit {
 
   viewerId: number;
   users: Array<Follower>;
+  keyWord = '';
 
   constructor(
     public userService: UserService

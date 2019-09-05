@@ -2,7 +2,7 @@
   <div class="row">
 
     <div class="col-8">
-      <app-follower *ngFor="let user of users"
+      <app-follower *ngFor="let user of users | filterFollowers:keyWord"
                     [follower]="user"
                     [id]="viewerId"
       ></app-follower>
@@ -10,9 +10,9 @@
 
     <div class="col-4">
       <div class="search-bar">
-        <label for="search">Input name of User</label>
-        <input id="search" type="search">
-        <button>Search</button>
+        <label>Input name of User
+          <input type="search" [(ngModel)]="keyWord" placeholder="Search...">
+        </label>
       </div>
     </div>
 
