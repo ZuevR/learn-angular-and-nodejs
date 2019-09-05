@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { AuthLayoutComponent } from './shared/components/auth-layout/auth-layout.component';
-import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
-import { SingUpPageComponent } from './sing-up-page/sing-up-page.component';
+import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { SingUpPageComponent } from './pages/sing-up-page/sing-up-page.component';
 
 @NgModule({
   declarations: [

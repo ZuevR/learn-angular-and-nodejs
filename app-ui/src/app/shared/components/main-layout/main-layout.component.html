@@ -33,11 +33,14 @@
 
           <nav class="nav-menu">
             <ul>
-              <li class="nav-menu-item" routerLinkActive="active"><a routerLink="/">All Posts</a></li>
-              <li class="nav-menu-item"><a routerLink="/my-posts">My Posts</a></li>
-              <li class="nav-menu-item"><a href="">Friends Posts</a></li>
-              <li class="nav-menu-item"><a href="">Users</a></li>
-              <li class="nav-menu-item"><a href="">Add New Post</a></li>
+              <li class="nav-menu-item"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+              ><a routerLink="/">All Posts</a></li>
+              <li class="nav-menu-item" routerLinkActive="active"><a routerLink="/my-posts">My Posts</a></li>
+              <li class="nav-menu-item" routerLinkActive="active"><a routerLink="/friends-posts">Friends Posts</a></li>
+              <li class="nav-menu-item" routerLinkActive="active"><a routerLink="/users">Users</a></li>
+              <li class="nav-menu-item" routerLinkActive="active"><a routerLink="/create-post">Add New Post</a></li>
             </ul>
           </nav>
 

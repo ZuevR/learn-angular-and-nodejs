@@ -9,10 +9,11 @@ module.exports = {
   },
 
   createPost(req, res) {
+    req.body.author_id = req._userId;
     return Post
       .create(req.body)
       .then(post => res.status(201).send(post))
-      .catch(error => console.log(error));
+      .catch(error => res.status(400).send(error));
   },
 
   getFriendsPosts(req, res) {

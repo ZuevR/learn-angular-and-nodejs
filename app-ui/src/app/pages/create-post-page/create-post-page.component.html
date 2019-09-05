@@ -1,0 +1,45 @@
+<div class="create">
+  <h1 class="page-title">Create new Post</h1>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label>Post title:
+        <div class="form-control">
+          <input type="text" formControlName="title">
+        </div>
+      </label>
+
+      <div class="error" *ngIf="form.get('title').invalid && form.get('title').touched">
+        <small *ngIf="form.get('title').hasError('required')">
+          The title field is required
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Post content:
+        <div class="form-control">
+          <textarea cols="50" rows="10" formControlName="content"></textarea>
+        </div>
+      </label>
+
+      <div class="error" *ngIf="form.get('content').invalid && form.get('content').touched">
+        <small *ngIf="form.get('content').hasError('required')">
+          The content field is required
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid || submitting">Create</button>
+    </div>
+
+    <div class="form-group" *ngIf="postService.error$ | async as message">
+      <div class="error common">{{ message }}</div>
+    </div>
+
+  </form>
+
+</div>
+

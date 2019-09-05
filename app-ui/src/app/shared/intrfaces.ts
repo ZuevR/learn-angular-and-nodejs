@@ -11,3 +11,12 @@ export interface AuthResponse {
     id: string
   };
 }
+
+export interface Post {
+  id?: number;
+  title: string;
+  content: string;
+  author_id?: number;
+  author_name?: string;
+  date?: string;
+}

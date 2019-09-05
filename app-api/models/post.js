@@ -26,7 +26,11 @@ module.exports = (sequelize, DataTypes) => {
       date: {
         type: DataTypes.DATE,
         get() {
-          return this.getDataValue('date').getTime()
+          const time = this.getDataValue('date');
+          if (time) {
+            return time.getTime();
+          }
+          return null;
         }
       }
     },
@@ -37,7 +41,11 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Post.findAllWithUserName = function () {
-    const queryString = `select p.id, p.title, p.content, date_part('epoch', p.date)::int as date, u.name
+    const queryString = `select p.id,
+                                p.title,
+                                p.content,
+                                extract(epoch from p.date)::float * 1000 as date,
+                                u.name                                   as author_name
                          from posts p
                                   left join users u on p.author_id = u.id
                          order by p.date desc;`;
@@ -49,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     const queryString = `select p.id, p.title, p.content, date_part('epoch', p.date)::int as date, u.name
                          from posts p
                                   right join users u on p.author_id = u.id
-                         where u.id in (select following from followers where follower = $1)
+                         where u.id in (select following from followers where follower = :id)
                            and p.author_id is not null
                          order by date desc`;
     return this.sequelize

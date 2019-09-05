@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const ResponseHelper = require('./response');
 
 const generateToken = payload => {
   const exp = Math.floor(Date.now() / 1000) + 3600;
@@ -26,7 +27,7 @@ const verifyToken = (req, res, next) => {
       req._userName = decoded.name;
       next();
     } else {
-      res.status(401).send({ message: 'Please login' });
+      res.status(401).send(ResponseHelper.error('Authorization failed'));
     }
   });
 };
