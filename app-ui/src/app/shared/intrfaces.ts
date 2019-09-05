@@ -20,3 +20,9 @@ export interface Post {
   author_name?: string;
   date?: string;
 }
+
+export interface Follower {
+  id: number;
+  name: string;
+  follower: number | null;
+}

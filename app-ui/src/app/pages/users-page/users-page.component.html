@@ -1,1 +1,20 @@
-<p>users-page works!</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-8">
+      <app-follower *ngFor="let user of users"
+                    [follower]="user"
+                    [id]="viewerId"
+      ></app-follower>
+    </div>
+
+    <div class="col-4">
+      <div class="search-bar">
+        <label for="search">Input name of User</label>
+        <input id="search" type="search">
+        <button>Search</button>
+      </div>
+    </div>
+
+  </div>
+</div>

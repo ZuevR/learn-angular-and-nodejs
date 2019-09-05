@@ -58,7 +58,7 @@ module.exports = {
             .then(() => res.status(201).send({ message: 'created' }));
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => res.status(400).send(error));
   },
 
   search(req, res) {

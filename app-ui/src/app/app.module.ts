@@ -13,6 +13,7 @@ import { PostComponent } from './components/post/post.component';
 import { MyPostsPageComponent } from './pages/my-posts-page/my-posts-page.component';
 import { FriendsPostsPageComponent } from './pages/friends-posts-page/friends-posts-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { FollowerComponent } from './components/follower/follower.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     PostComponent,
     MyPostsPageComponent,
     FriendsPostsPageComponent,
-    UsersPageComponent
+    UsersPageComponent,
+    FollowerComponent
   ],
   imports: [
     SharedModule,

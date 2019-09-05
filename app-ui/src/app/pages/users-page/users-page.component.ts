@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../shared/services/user.service';
+
+import { Follower } from '../../shared/intrfaces';
 
 @Component({
   selector: 'app-users-page',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersPageComponent implements OnInit {
 
-  constructor() { }
+  viewerId: number;
+  users: Array<Follower>;
+
+  constructor(
+    public userService: UserService
+  ) {
+  }
 
   ngOnInit() {
+    this.userService.getAll().subscribe((response: { users: Array<Follower>, id: number }) => {
+      console.log(response);
+      this.viewerId = response.id;
+      this.users = response.users;
+    });
   }
 
 }

@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Fontello';
+  src:  url("../../../assets/fonts/fontello.woff2") format('woff2');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(61, 183, 198, 0.23);
+
+  .follow {
+    font-family: 'Fontello';
+    color: #3db7c6;
+
+    &:hover {
+      animation: heartbeat 1s cubic-bezier(0.1,0.25,0.1,1) 0s infinite ;
+    }
+
+    .icon-heart-empty {
+      cursor: pointer;
+
+      &:before {
+        content: '\e800';
+      }
+    }
+
+    .icon-heart{
+      cursor: pointer;
+      &:before { content: '\e801'; }
+    }
+  }
+}

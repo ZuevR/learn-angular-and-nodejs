@@ -1,0 +1,8 @@
+<div class="user">
+  <span class="user-name">{{ follower.name }}</span>
+  <span class="follow">
+    <i [ngClass]="{'icon-heart-empty': !follower.follower, 'icon-heart': !!follower.follower}"
+       (click)="toggle()"
+    ></i>
+  </span>
+</div>

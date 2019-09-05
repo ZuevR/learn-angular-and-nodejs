@@ -3,8 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { AuthResponse, User } from '../../../shared/intrfaces';
-import { environment } from '../../../../environments/environment';
+import { AuthResponse, User } from '../intrfaces';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
