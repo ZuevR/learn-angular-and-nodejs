@@ -21,6 +21,7 @@ export class FriendsPostsPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.pSub = this.postService.getFriendsPosts().subscribe(response => {
       console.log(response);
+      this.posts = response;
     });
   }
 

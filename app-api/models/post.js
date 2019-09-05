@@ -54,7 +54,11 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Post.findFriendsPosts = function (id) {
-    const queryString = `select p.id, p.title, p.content, date_part('epoch', p.date)::int as date, u.name
+    const queryString = `select p.id,
+                                p.title,
+                                p.content,
+                                extract(epoch from p.date)::float * 1000 as date,
+                                u.name                                   as author_name
                          from posts p
                                   right join users u on p.author_id = u.id
                          where u.id in (select following from followers where follower = :id)

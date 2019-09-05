@@ -14,6 +14,13 @@
           <input type="search" [(ngModel)]="keyWord" placeholder="Search...">
         </label>
       </div>
+      <div class="sort-bar">
+        Sort by Name
+        <div class="icons">
+          <i class="icon-up-big" [class.active]="!sort" (click)="sortZA()"></i>
+          <i class="icon-down-big" [class.active]="sort" (click)="sortAZ()"></i>
+        </div>
+      </div>
     </div>
 
   </div>

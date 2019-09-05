@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Fontello';
+  src:  url("../../../assets/fonts/fontello.woff2") format('woff2');
+  font-style: normal;
+  font-weight: normal;
+}
 
 .search-bar {
   background-color: #fff;
@@ -6,9 +11,9 @@
   padding: 20px 0;
   border: 1px solid var(--primary-color);
 
-  input, button {
+  input {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto 0;
     width: 70%;
     padding: 5px 10px;
     font-size: 1rem;
@@ -21,20 +26,50 @@
     transition: background-color .1s linear;
     outline: none;
   }
+}
 
-  button {
-    width: 50%;
-    margin-bottom: 0;
-    cursor: pointer;
+.sort-bar {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  border: 1px solid var(--primary-color);
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 
-    &:hover {
-      color: #222222;
-      background-color: #daf3f6;
+  .icons {
+    font-family: 'Fontello';
+    color: #3db7c636;
+    margin-left: 15px;
+
+    i {
+      margin: 0 2px;
     }
 
-    &:active {
-      background-color: #3db7c6;
+    .icon-up-big {
+      cursor: pointer;
+
+      &:before {
+        content: '\e802';
+      }
+
+      &.active {
+        color: #3db7c6;
+      }
     }
+
+    .icon-down-big {
+      cursor: pointer;
+
+      &:before {
+        content: '\e803';
+      }
+
+      &.active {
+        color: #3db7c6;
+      }
+    }
+
   }
 }
 
