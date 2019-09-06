@@ -44,7 +44,22 @@
             </ul>
           </nav>
 
-<!--          <div class="errors-block">Sasdasdsasdasdasdsaasddarror</div>-->
+          <div class="sort-block"
+               *ngIf="currentPath === '/' ||
+                      currentPath === '/my-posts' ||
+                      currentPath === '/friends-posts'">
+            Sort by Date
+            <div class="icons">
+              <i class="icon-up-big"
+                 [class.active]="direction === 'up'"
+                 (click)="sort('up')"></i>
+              <i class="icon-down-big"
+                 [class.active]="direction === 'down'"
+                 (click)="sort('down')"></i>
+            </div>
+          </div>
+
+          <!--<div class="errors-block">Some error</div>-->
 
         </div>
       </div>

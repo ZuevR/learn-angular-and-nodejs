@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Fontello';
+  src:  url("../../../../assets/fonts/fontello.woff2") format('woff2');
+  font-style: normal;
+  font-weight: normal;
+}
+
 .main {
   margin-top: 50px;
   min-height: calc(100% - 172px);
@@ -73,6 +80,50 @@
       margin-top: 25px;
       padding: 10px;
       color: var(--danger-color);
+    }
+
+    .sort-block {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid var(--primary-color);
+
+      .icons {
+        font-family: 'Fontello';
+        color: #3db7c636;
+        margin-left: 15px;
+
+        i {
+          margin: 0 2px;
+        }
+
+        .icon-up-big {
+          cursor: pointer;
+
+          &:before {
+            content: '\e802';
+          }
+
+          &.active {
+            color: #3db7c6;
+          }
+        }
+
+        .icon-down-big {
+          cursor: pointer;
+
+          &:before {
+            content: '\e803';
+          }
+
+          &.active {
+            color: #3db7c6;
+          }
+        }
+
+      }
     }
   }
 }
