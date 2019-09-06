@@ -7,6 +7,7 @@ import { CreatePostPageComponent } from './pages/create-post-page/create-post-pa
 import { MyPostsPageComponent } from './pages/my-posts-page/my-posts-page.component';
 import { FriendsPostsPageComponent } from './pages/friends-posts-page/friends-posts-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { AuthGuard } from './shared/auth.guard';
 
 
 const routes: Routes = [
@@ -14,10 +15,10 @@ const routes: Routes = [
     path: '', component: MainLayoutComponent, children: [
       { path: '', redirectTo: '/', pathMatch: 'full' },
       { path: '', component: HomePageComponent },
-      { path: 'my-posts', component: MyPostsPageComponent },
-      { path: 'friends-posts', component: FriendsPostsPageComponent },
-      { path: 'users', component: UsersPageComponent },
-      { path: 'create-post', component: CreatePostPageComponent }
+      { path: 'my-posts', component: MyPostsPageComponent, canActivate: [AuthGuard] },
+      { path: 'friends-posts', component: FriendsPostsPageComponent, canActivate: [AuthGuard] },
+      { path: 'users', component: UsersPageComponent, canActivate: [AuthGuard] },
+      { path: 'create-post', component: CreatePostPageComponent, canActivate: [AuthGuard] }
     ]
   },
   {
