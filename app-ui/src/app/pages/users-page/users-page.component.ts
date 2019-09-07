@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UserService } from '../../shared/services/user.service';
-
-import { Follower } from '../../shared/intrfaces';
 import { Subscription } from 'rxjs';
+
+import { UserService } from '../../shared/services/user.service';
+import { Follower } from '../../shared/intrfaces';
 
 @Component({
   selector: 'app-users-page',

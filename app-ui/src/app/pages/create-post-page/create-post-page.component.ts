@@ -43,7 +43,6 @@ export class CreatePostPageComponent implements OnInit {
       this.router.navigate(['/']);
       this.submitting = false;
     }, (e) => {
-      console.log(e);
       this.submitting = false;
     });
   }

@@ -1,8 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Follower } from '../../shared/intrfaces';
 import { UserService } from '../../shared/services/user.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-follower',

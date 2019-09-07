@@ -27,7 +27,6 @@ export class MyPostsPageComponent implements OnInit, OnDestroy {
     });
 
     this.pSub = this.postService.getMyPosts().subscribe(response => {
-      console.log(response);
       this.posts = response;
     });
   }

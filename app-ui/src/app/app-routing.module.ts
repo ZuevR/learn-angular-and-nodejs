@@ -18,7 +18,8 @@ const routes: Routes = [
       { path: 'my-posts', component: MyPostsPageComponent, canActivate: [AuthGuard] },
       { path: 'friends-posts', component: FriendsPostsPageComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersPageComponent, canActivate: [AuthGuard] },
-      { path: 'create-post', component: CreatePostPageComponent, canActivate: [AuthGuard] }
+      { path: 'create-post', component: CreatePostPageComponent, canActivate: [AuthGuard] },
+      { path: '**', redirectTo: '/' }
     ]
   },
   {

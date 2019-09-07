@@ -24,5 +24,10 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/posts', postRouter);
 
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.send('something broke');
+});
+
 
 module.exports = app;

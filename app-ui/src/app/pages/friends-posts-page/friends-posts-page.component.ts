@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Post } from '../../shared/intrfaces';
-
 import { Subscription } from 'rxjs';
+
+import { Post } from '../../shared/intrfaces';
 import { PostService } from '../../shared/services/post.service';
 import { SortService } from '../../shared/services/sort.service';
 
@@ -27,7 +27,6 @@ export class FriendsPostsPageComponent implements OnInit, OnDestroy {
     });
 
     this.pSub = this.postService.getFriendsPosts().subscribe(response => {
-      console.log(response);
       this.posts = response;
     });
   }
