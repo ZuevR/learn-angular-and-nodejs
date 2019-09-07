@@ -19,11 +19,13 @@ const routes: Routes = [
       { path: 'friends-posts', component: FriendsPostsPageComponent, canActivate: [AuthGuard] },
       { path: 'users', component: UsersPageComponent, canActivate: [AuthGuard] },
       { path: 'create-post', component: CreatePostPageComponent, canActivate: [AuthGuard] },
-      { path: '**', redirectTo: '/' }
     ]
   },
   {
     path: 'auth', loadChildren: () => import('./auth/auth.module').then(module => module.AuthModule)
+  },
+  {
+    path: '**', redirectTo: '/'
   }
 ];
 
